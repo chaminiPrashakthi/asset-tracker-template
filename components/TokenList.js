@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { formatMarketCapture } from "@/util/formatData";
 
 import PriceChange from "./priceChange";
-
 import SearchBar from "./SearchBar";
 
 const TokenList = () => {
