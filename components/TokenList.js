@@ -5,13 +5,13 @@ import React, { useEffect, useState } from "react";
 import { formatMarketCapture } from "@/util/formatData";
 
 import PriceChange from "./priceChange";
+
 import SearchBar from "./SearchBar";
 
 const TokenList = () => {
   const [tokens, setTokens] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredTokens, setFilteredTokens] = useState([]);
-  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchTokens = async () => {
@@ -30,35 +30,19 @@ const TokenList = () => {
     fetchTokens();
   }, []);
 
-  const handleSearch = () => {
-    onSearch(query);
-  };
-
-  const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    console.log("kkk", inputValue);
-    setQuery(inputValue);
-  };
+  const handleSearch = (query) => {
+    // Add a short delay before fetching data
+    setTimeout(() => {
+      const filtered = tokens.filter((token) =>
+        token.symbol.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredTokens(filtered);
+    }, 500); // Adjust delay time as needed
   };
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <Heading>
-        <InputGroup>
-          <Input
-            type="text"
-            placeholder="AssetTracker Track your favourite crypto assets"
-            value={query}
-            onChange={handleInputChange}
-            className="search-input"
-          />
-          <InputRightElement>
-            <Button onClick={handleSearch} colorScheme="blue">
-              <FaSearch />
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </Heading>
+      <Heading color="white">Asset Tracker</Heading>
       <SearchBar onSearch={handleSearch} />
       {loading ? (
         <Spinner size="xl" color="blue.500" />

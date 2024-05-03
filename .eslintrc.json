@@ -20,11 +20,6 @@
     "no-undef": 0,
     "no-shadow": "off",
     "arrow-body-style": 2,
-    "import/order": [
-      2,
-      {
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
-      }
-    ]
+    "import/order": 2
   }
 }
