@@ -23,7 +23,7 @@
     "import/order": [
       2,
       {
-        "newlines-between": "always",
+        "newlines-between": "off",
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ]
