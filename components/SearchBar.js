@@ -11,6 +11,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
+    console.log("kkk", inputValue);
     setQuery(inputValue);
   };
 
@@ -21,7 +22,7 @@ const SearchBar = ({ onSearch }) => {
         placeholder="AssetTracker Track your favourite crypto assets"
         value={query}
         onChange={handleInputChange}
-        className="search-input" // Add class for custom styling
+        className="search-input"
       />
       <InputRightElement>
         <Button onClick={handleSearch} colorScheme="blue">
