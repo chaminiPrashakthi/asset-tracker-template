@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { Flex, Heading, Spinner, Table, Tbody, Td, Th, Thead, Tr, Text } from "@chakra-ui/react";
+
+import React, { useEffect, useState } from "react";
+
 import { formatMarketCapture } from "@/util/formatData";
+
 import PriceChange from "./priceChange";
 
 const TokenList = () => {

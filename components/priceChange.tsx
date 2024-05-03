@@ -1,4 +1,5 @@
 import React from "react";
+
 import { getPriceChangePrecentage } from "@/util/formatData";
 
 const PriceChange: React.FC<{ percentChange: number }> = ({ percentChange }) => {

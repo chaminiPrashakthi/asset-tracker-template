@@ -1,5 +1,5 @@
-import { Card, Flex, Heading, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import { NextPage } from "next";
+
 import TokenList from "../components/tokenList";
 
 const Home: NextPage = () => (
