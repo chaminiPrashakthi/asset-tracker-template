@@ -6,9 +6,12 @@ import { formatMarketCapture } from "@/util/formatData";
 
 import PriceChange from "./priceChange";
 
+import SearchBar from "./SearchBar";
+
 const TokenList = () => {
   const [tokens, setTokens] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filteredTokens, setFilteredTokens] = useState([]);
 
   useEffect(() => {
     const fetchTokens = async () => {
@@ -16,6 +19,7 @@ const TokenList = () => {
         const response = await fetch("/api/topTokens");
         const data = await response.json();
         setTokens(data);
+        setFilteredTokens(data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching top tokens:", error);
@@ -26,9 +30,20 @@ const TokenList = () => {
     fetchTokens();
   }, []);
 
+  const handleSearch = (query) => {
+    // Add a short delay before fetching data
+    setTimeout(() => {
+      const filtered = tokens.filter((token) =>
+        token.symbol.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredTokens(filtered);
+    }, 500); // Adjust delay time as needed
+  };
+
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       <Heading color="white">Asset Tracker</Heading>
+      <SearchBar onSearch={handleSearch} />
       {loading ? (
         <Spinner size="xl" color="blue.500" />
       ) : (
@@ -42,7 +57,7 @@ const TokenList = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {tokens.map((token, index) => (
+            {filteredTokens.map((token, index) => (
               <Tr
                 key={index}
                 style={{

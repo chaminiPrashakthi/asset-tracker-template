@@ -19,5 +19,13 @@
     ],
     "no-undef": 0,
     "no-shadow": "off",
-    "arrow-body-style": 2
+    "arrow-body-style": 2,
+    "import/order": [
+      2,
+      {
+        "newlines-between": "always",
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ]
+  }
 }
