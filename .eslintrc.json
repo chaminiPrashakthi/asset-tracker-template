@@ -4,6 +4,8 @@
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "eslint-comments/disable-enable-pair": "off",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "import/prefer-default-export": "off",
@@ -17,13 +19,5 @@
     ],
     "no-undef": 0,
     "no-shadow": "off",
-    "arrow-body-style": 2,
-    "import/order": [
-      2,
-      {
-        "newlines-between": "always",
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
-      }
-    ]
-  }
+    "arrow-body-style": 2
 }
