@@ -1,11 +1,7 @@
-import { Flex, Heading, Spinner, Table, Tbody, Td, Th, Thead, Tr, Text } from "@chakra-ui/react";
-
 import React, { useEffect, useState } from "react";
-
+import { Flex, Heading, Spinner, Table, Tbody, Td, Th, Thead, Tr, Text } from "@chakra-ui/react";
 import { formatMarketCapture } from "@/util/formatData";
-
 import PriceChange from "./priceChange";
-
 import SearchBar from "./SearchBar";
 
 const TokenList = () => {
@@ -31,18 +27,16 @@ const TokenList = () => {
   }, []);
 
   const handleSearch = (query) => {
-    // Add a short delay before fetching data
-    setTimeout(() => {
-      const filtered = tokens.filter((token) =>
-        token.symbol.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredTokens(filtered);
-    }, 500); // Adjust delay time as needed
+    // Filter tokens based on the search query
+    const filtered = tokens.filter((token) =>
+      token.symbol.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredTokens(filtered);
   };
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <Heading color="white">Asset Tracker</Heading>
+      <Heading>Asset Tracker</Heading>
       <SearchBar onSearch={handleSearch} />
       {loading ? (
         <Spinner size="xl" color="blue.500" />
@@ -69,7 +63,7 @@ const TokenList = () => {
               >
                 <Td>#{token.cmc_rank}</Td>
                 <Td>
-                  <img src={token.image}></img>
+                  <img src={token.image} alt={token.symbol}></img>
                   <Text ml={2}>{token.symbol}</Text>
                   <Text fontSize="sm" color="gray.500">
                     {formatMarketCapture(token.quote.USD.market_cap)}
@@ -92,4 +86,5 @@ const TokenList = () => {
     </Flex>
   );
 };
+
 export default TokenList;

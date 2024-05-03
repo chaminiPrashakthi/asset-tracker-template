@@ -5,14 +5,10 @@ import { FaSearch } from "react-icons/fa";
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
-  const handleSearch = () => {
-    onSearch(query);
-  };
-
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
-    console.log("kkk", inputValue);
     setQuery(inputValue);
+    onSearch(inputValue); // Call onSearch prop with the search text
   };
 
   return (
@@ -25,7 +21,7 @@ const SearchBar = ({ onSearch }) => {
         className="search-input"
       />
       <InputRightElement>
-        <Button onClick={handleSearch} colorScheme="blue">
+        <Button colorScheme="blue">
           <FaSearch />
         </Button>
       </InputRightElement>
