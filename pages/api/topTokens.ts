@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   try {
     const response = await fetch(
       "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=25&sort=market_cap&convert=USD",
