@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
+import "../styles/tokenlist.css";
 
 import { theme } from "@/ui";
 

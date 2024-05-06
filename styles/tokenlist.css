@@ -1,0 +1,101 @@
+.token-table {
+  background-color: #1a1919;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 7px;
+  padding: 10px;
+}
+
+.token-table td {
+  vertical-align: middle;
+  background: #2f2e2e;
+  padding: 8px;
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
+}
+
+.token-row img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.flex p {
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+  font-size: 14px;
+}
+
+.market-cap {
+  color: #a1a1a1;
+  text-align: left;
+  font-size: 13px;
+}
+
+.token-table th {
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  vertical-align: middle;
+  padding: 8px !important;
+}
+
+table td:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+table td:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.token-row .market-cap {
+  font-size: 12px;
+  color: #666;
+}
+
+.status {
+  width: 40px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.left {
+  text-align: left;
+}
+
+.status p {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.green {
+  background-color: rgba(0, 128, 0, 0.2);
+}
+
+.green p {
+  color: #2ece49;
+  margin: 0;
+}
+
+.red {
+  background-color: rgba(248, 0, 0, 0.2);
+}
+
+.red p {
+  color: #ff4141;
+  margin: 0;
+}
