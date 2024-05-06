@@ -1,16 +1,17 @@
 .token-table {
-  background-color: #1a1919;
+  background-color: #000;
   width: 100%;
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 0 7px;
-  padding: 10px;
 }
-
-.token-table td {
+.token-table tbody Tr {
   vertical-align: middle;
-  background: #2f2e2e;
+  background-color: #2f2e2e !important;
   padding: 8px;
+  border-top: 8px solid #000 !important;
+  border-bottom: 8px solid #000 !important;
+  border-radius: 4px !important;
   font-size: 13px;
   color: #fff;
   text-align: center;
@@ -38,24 +39,26 @@
 
 .market-cap {
   color: #a1a1a1;
-  text-align: left;
   font-size: 13px;
 }
 
-.token-table th {
+.token-table Thead Td {
   font-weight: 700;
   font-size: 14px;
   color: #fff;
+  text-align: center;
   vertical-align: middle;
   padding: 8px !important;
 }
 
-table td:last-child {
-  border-radius: 0 6px 6px 0;
+.token-table tbody Td:last-child {
+  border-radius: 0 8px 8px 0;
+  border-right: 8px solid #000;
 }
 
-table td:first-child {
-  border-radius: 6px 0 0 6px;
+.token-table tbody Td:first-child {
+  border-radius: 8px 0 0 8px;
+  border-left: 8px solid #000;
 }
 
 .token-row .market-cap {
@@ -64,7 +67,7 @@ table td:first-child {
 }
 
 .status {
-  width: 40px;
+  width: fit-content;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -77,6 +80,9 @@ table td:first-child {
   text-align: left;
 }
 
+.right {
+  text-align: right;
+}
 .status p {
   font-weight: bold;
   font-size: 14px;

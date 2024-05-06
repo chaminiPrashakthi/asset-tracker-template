@@ -1,11 +1,16 @@
 import React from "react";
 
-import { getPriceChangePrecentage } from "@/util/formatData";
+import { getPriceChangePercentage } from "@/util/formatData";
 
+// price change component in the last 24 hours
 const PriceChange: React.FC<{ percentChange: number }> = ({ percentChange }) => {
-  const { color, formattedPercentChange } = getPriceChangePrecentage(percentChange);
+  const { color, styleClass, formattedPercentChange } = getPriceChangePercentage(percentChange);
 
-  return <span style={{ color }}>{formattedPercentChange}%</span>;
+  return (
+    <span style={{ color }} className={styleClass}>
+      {formattedPercentChange}%
+    </span>
+  );
 };
 
 export default PriceChange;

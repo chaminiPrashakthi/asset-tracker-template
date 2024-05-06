@@ -6,19 +6,7 @@
     "eslint-comments/disable-enable-pair": "off",
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
-    "import/extensions": 0,
-    "import/no-unresolved": 0,
-    "import/prefer-default-export": "off",
-    "import/no-extraneous-dependencies": [
-      "off",
-      {
-        "devDependencies": false,
-        "optionalDependencies": false,
-        "peerDependencies": false
-      }
-    ],
     "no-undef": 0,
-    "no-shadow": "off",
-    "arrow-body-style": 2
+    "no-shadow": "off"
   }
 }

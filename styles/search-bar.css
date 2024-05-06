@@ -2,10 +2,17 @@
   font-size: 16px;
   font-weight: 600;
   color: black;
+  background-color: black;
 }
 
 .search-input::placeholder {
   font-size: 14px;
   font-weight: normal;
   color: grey;
+}
+
+.search-bar {
+  width: 100%;
+  height: 80px;
+  background-color: black;
 }

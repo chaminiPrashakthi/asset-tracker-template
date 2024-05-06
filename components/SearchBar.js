@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react";
-import { FaSearch } from "react-icons/fa";
+import { SearchIcon } from "@chakra-ui/icons";
+import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { useState } from "react";
+
+//seacth component
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -8,22 +10,24 @@ const SearchBar = ({ onSearch }) => {
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     setQuery(inputValue);
-    onSearch(inputValue); // Call onSearch prop with the search text
+    // Call onSearch prop with the search text
+    onSearch(inputValue);
   };
 
   return (
-    <InputGroup>
+    <InputGroup backgroundColor="black" width="40%">
       <Input
         type="text"
-        placeholder="AssetTracker Track your favourite crypto assets"
+        placeholder="Track your favourite crypto assets "
+        fontSize="1.2em"
+        color="white"
+        textAlign="center"
         value={query}
+        borderColor="black"
         onChange={handleInputChange}
-        className="search-input"
       />
-      <InputRightElement>
-        <Button colorScheme="blue">
-          <FaSearch />
-        </Button>
+      <InputRightElement color="gray.300" fontSize="2.2em">
+        <SearchIcon color="white" boxSize={6} />
       </InputRightElement>
     </InputGroup>
   );
