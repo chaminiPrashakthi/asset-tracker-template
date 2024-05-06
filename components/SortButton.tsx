@@ -16,9 +16,9 @@ const SortButton: React.FC<SortButtonProps> = ({ sortOrder, columnKey, sortKey, 
   return (
     <button
       onClick={onClick}
-      className={`${
+      className={
         sortKey === columnKey && sortOrder === "desc" ? "sort-button sort-reverse" : "sort-button"
-      }`}
+      }
     >
       ▲
     </button>
