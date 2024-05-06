@@ -21,7 +21,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/searchBar.js",
+    "components/searchBar.tsx",
     "components/tokenList.js"
   ],
   "exclude": ["node_modules"]

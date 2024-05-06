@@ -2,7 +2,7 @@ import { formatCurrency, formatMarketCapture } from "@/util/formatData";
 import { Flex, Heading, Spinner, Table, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 import TokenIconRow from "./tokenIconRow";
-import SortButton from "./sortButton";
+import SortButton from "./sortArrow";
 import PriceChange from "./priceChange";
 import SearchBar from "./searchBar";
 

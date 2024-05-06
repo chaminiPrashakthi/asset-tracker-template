@@ -1,13 +1,15 @@
 import { SearchIcon } from "@chakra-ui/icons";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 
-//seacth component
+interface SearchBarProps {
+  onSearch: (query: string) => void;
+}
 
-const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const [query, setQuery] = useState<string>("");
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setQuery(inputValue);
     // Call onSearch prop with the search text
