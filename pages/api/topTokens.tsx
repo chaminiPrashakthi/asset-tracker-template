@@ -1,3 +1,9 @@
+/**
+ * Api call to cmp api to get top 25 cryptocurrency tokens
+ * @param {any} req - The request object.
+ * @param {any} res - The response object.
+ * @returns {Promise<void>} - A promise resolving to void.
+ */
 export default async function handler(req: any, res: any) {
   try {
     const response = await fetch(
