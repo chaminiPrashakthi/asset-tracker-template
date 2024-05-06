@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-import TokenList from "../components/tokenList";
+import TokenList from "../components/TokenList";
 
 const Home: NextPage = () => (
   <div>
