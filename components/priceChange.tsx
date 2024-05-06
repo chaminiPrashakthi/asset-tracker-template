@@ -1,9 +1,11 @@
 import React from "react";
+import { getPriceChangePercentage } from "../util/formatData";
 
-import { getPriceChangePercentage } from "@/util/formatData";
+interface PriceChangeProps {
+  percentChange: number;
+}
 
-// price change component in the last 24 hours
-const PriceChange: React.FC<{ percentChange: number }> = ({ percentChange }) => {
+const PriceChange: React.FC<PriceChangeProps> = ({ percentChange }) => {
   const { color, styleClass, formattedPercentChange } = getPriceChangePercentage(percentChange);
 
   return (
