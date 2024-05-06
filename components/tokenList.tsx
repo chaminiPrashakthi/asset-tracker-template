@@ -1,10 +1,10 @@
 import { formatCurrency, formatMarketCapture } from "@/util/formatData";
 import { Flex, Heading, Spinner, Table, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
+import TokenIconRow from "./tokenIconRow";
+import SortButton from "./SortButton";
 import PriceChange from "./PriceChange";
 import SearchBar from "./SearchBar";
-import SortButton from "./SortButton";
-import TokenIconRow from "./tokenIconRow";
 
 const TokenList: React.FC = () => {
   const [tokens, setTokens] = useState<any[]>([]);
