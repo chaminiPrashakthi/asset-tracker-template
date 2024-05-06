@@ -3,7 +3,7 @@ import { Flex, Heading, Spinner, Table, Tbody, Td, Thead, Tr } from "@chakra-ui/
 import React, { useCallback, useEffect, useState } from "react";
 import TokenIconRow from "./tokenIconRow";
 import SortButton from "./SortButton";
-import PriceChange from "./PriceChange";
+import PriceChange from "./priceChange";
 import SearchBar from "./SearchBar";
 
 const TokenList: React.FC = () => {
