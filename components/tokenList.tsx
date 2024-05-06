@@ -3,11 +3,13 @@ import { Flex, Heading, Spinner, Table, Tbody, Td, Th, Thead, Tr, Text } from "@
 import { formatMarketCapture } from "@/util/formatData";
 import PriceChange from "./priceChange";
 import SearchBar from "./SearchBar";
+import TokenNameRow from "./tokenNameRow";
+import { useTable, useSortBy } from "react-table";
 
-const TokenList = () => {
-  const [tokens, setTokens] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [filteredTokens, setFilteredTokens] = useState([]);
+const TokenList: React.FC = () => {
+  const [tokens, setTokens] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [filteredTokens, setFilteredTokens] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchTokens = async () => {
@@ -26,7 +28,7 @@ const TokenList = () => {
     fetchTokens();
   }, []);
 
-  const handleSearch = (query) => {
+  const handleSearch = (query: string) => {
     // Filter tokens based on the search query
     const filtered = tokens.filter((token) =>
       token.symbol.toLowerCase().includes(query.toLowerCase())
@@ -34,14 +36,42 @@ const TokenList = () => {
     setFilteredTokens(filtered);
   };
 
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: "#",
+        accessor: "cmc_rank",
+      },
+      {
+        Header: "Name",
+        accessor: "symbol",
+      },
+      {
+        Header: "Price",
+        accessor: "quote.USD.price",
+      },
+      {
+        Header: "24h %",
+        accessor: "quote.USD.percent_change_24h",
+      },
+    ],
+    []
+  );
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
+    { columns, data: filteredTokens },
+    useSortBy
+  );
+
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       <Heading>Asset Tracker</Heading>
+
       <SearchBar onSearch={handleSearch} />
       {loading ? (
         <Spinner size="xl" color="blue.500" />
       ) : (
-        <Table variant="simple" colorScheme="gray">
+        <Table variant="simple" className="token-table" {...getTableProps()}>
           <Thead>
             <Tr>
               <Th>#</Th>
@@ -52,22 +82,18 @@ const TokenList = () => {
           </Thead>
           <Tbody>
             {filteredTokens.map((token, index) => (
-              <Tr
-                key={index}
-                style={{
-                  backgroundColor: "ash",
-                  borderRadius: "8px",
-                  padding: "8px",
-                  marginBottom: "8px",
-                }}
-              >
+              <Tr key={index} className="token-row">
                 <Td>#{token.cmc_rank}</Td>
                 <Td>
-                  <img src={token.image} alt={token.symbol}></img>
-                  <Text ml={2}>{token.symbol}</Text>
-                  <Text fontSize="sm" color="gray.500">
-                    {formatMarketCapture(token.quote.USD.market_cap)}
-                  </Text>
+                  <div className="flex">
+                    <TokenNameRow tokenName={token.symbol} />
+                    <div className="left">
+                      <p>{token.symbol}</p>
+                      <span className="market-cap">
+                        {formatMarketCapture(token.quote.USD.market_cap)}
+                      </span>
+                    </div>
+                  </div>
                 </Td>
                 <Td>
                   {new Intl.NumberFormat("en-US", {
